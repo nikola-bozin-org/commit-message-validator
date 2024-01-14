@@ -19,7 +19,7 @@ for prefix in "${VALID_PREFIXES[@]}"; do
 done
 
 if [ "$valid_prefix_found" = false ]; then
-    echo "Commit message does not start with 'fix: ', 'docs: ', or 'feat: '."
+    echo "Commit message does not start with 'fix: ', 'docs: ', 'chore: ', or 'feat: '."
     echo "Please use a valid commit message format."
     exit 1
 fi
