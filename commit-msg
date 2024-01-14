@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Path to the file where Git stores the commit message
+COMMIT_MSG_FILE=".git/COMMIT_EDITMSG"
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+echo "Commit message being checked: '$COMMIT_MSG'"
+
+# Define the valid commit message prefixes with a space after the colon
+VALID_PREFIXES=("fix: " "docs: " "feat: ")
+
+# Check if the commit message starts with a valid prefix
+valid_prefix_found=false
+for prefix in "${VALID_PREFIXES[@]}"; do
+    if [[ $COMMIT_MSG =~ ^$prefix ]]; then
+        valid_prefix_found=true
+        break
+    fi
+done
+
+if [ "$valid_prefix_found" = false ]; then
+    echo "Commit message does not start with 'fix: ', 'docs: ', or 'feat: '."
+    echo "Please use a valid commit message format."
+    exit 1
+fi
+
+exit 0
