@@ -7,7 +7,7 @@ COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 echo "Commit message being checked: '$COMMIT_MSG'"
 
 # Define the valid commit message prefixes with a space after the colon
-VALID_PREFIXES=("fix: " "docs: " "feat: ")
+VALID_PREFIXES=("fix: " "docs: " "feat: " "chore: ")
 
 # Check if the commit message starts with a valid prefix
 valid_prefix_found=false
